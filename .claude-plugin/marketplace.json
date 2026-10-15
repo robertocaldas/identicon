@@ -1,0 +1,6 @@
+{
+  "name": "identicon",
+  "owner": { "name": "Roberto Caldas" },
+  "description": "A GitHub-style identicon of the current repo in a docked pane",
+  "plugins": [{ "name": "identicon", "source": "./" }]
+}

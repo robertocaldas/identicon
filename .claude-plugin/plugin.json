@@ -1,0 +1,23 @@
+{
+  "name": "identicon",
+  "version": "0.2.0",
+  "description": "GitHub-style identicon of the current repo in a docked pane",
+  "author": { "name": "Roberto Caldas" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "position": {
+      "type": "string",
+      "title": "Position",
+      "description": "Where the icon sits in the pane",
+      "options": ["top", "bottom"],
+      "default": "top"
+    },
+    "cellShape": {
+      "type": "string",
+      "title": "Cell shape",
+      "description": "Your terminal cell's height as a multiple of its width, so the icon draws square (most fonts 2.0; iTerm2 with extra line spacing about 2.4)",
+      "options": ["2.0", "2.2", "2.4"],
+      "default": "2.0"
+    }
+  }
+}
