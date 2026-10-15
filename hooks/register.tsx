@@ -1,7 +1,7 @@
 import { atom, read, update } from 'claude-code'
 import type { Register } from 'claude-code'
 
-import { BACKGROUND, HEIGHT, identicon, lastPart, normaliseRemote, widthFor } from './identicon'
+import { HEIGHT, TILE, identicon, lastPart, normaliseRemote, widthFor } from './identicon'
 
 const PANE = 'identicon'
 const SHAPES = ['2.0', '2.2', '2.4']
@@ -51,7 +51,6 @@ export const register: Register = (on, options) => {
       return <Text dimColor>…</Text>
     }
 
-    const paint = (isOn: boolean) => (isOn ? pic.color : BACKGROUND)
     const lines = Array.from({ length: HEIGHT / 2 }, (_, line) => [pic.cells[line * 2], pic.cells[line * 2 + 1]])
     // Docked, the body is the dock's full height; inline it fits the tree.
     const height = isBottom && e.props.placement === 'dock' ? e.props.scroll.bodyRows : undefined
@@ -81,7 +80,7 @@ export const register: Register = (on, options) => {
           {lines.map(([top, bottom], line) => (
             <Button key={`row-${line}`} label={`Cell shape ${shape}`} plain onPress={step}>
               {top.map((isOn, col) => (
-                <Text color={paint(isOn)} backgroundColor={paint(bottom[col])}>
+                <Text color={isOn ? pic.color : TILE} backgroundColor={bottom[col] ? pic.color : TILE}>
                   ▀
                 </Text>
               ))}

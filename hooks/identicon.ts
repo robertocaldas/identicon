@@ -5,7 +5,10 @@ export const HEIGHT = 8
 
 // Columns that make the icon square for a cell `shape` times taller than wide.
 export const widthFor = (shape: number): number => Math.round((HEIGHT / 2) * shape)
-export const BACKGROUND = '#2b2b2b'
+
+// The tile behind the icon: the theme's text colour, so black on a light theme
+// and white on a dark one, standing out from the pane either way.
+export const TILE = 'text'
 
 // FNV-1a, then a murmur3 finaliser so nearby seeds spread.
 const hash = (text: string, salt: number): number => {
